@@ -1,11 +1,26 @@
-import { DatePicker } from "@ark-ui/react/date-picker";
+import { DatePicker, useDatePicker } from "@ark-ui/react/date-picker";
 import { Portal } from "@ark-ui/react/portal";
 import "./App.css";
 
 export const Basic = () => {
+  const datePicker = useDatePicker({
+    locale: "pt-br",
+    outsideDaySelectable: true,
+  });
+
   return (
-    <DatePicker.Root>
-      <DatePicker.Label>Label</DatePicker.Label>
+    <DatePicker.RootProvider value={datePicker}>
+      <DatePicker.Label>
+        Label
+        {JSON.stringify(
+          {
+            start: datePicker.visibleRange.start.toDate("America/Sao_Paulo"),
+            end: datePicker.visibleRange.end.toDate("America/Sao_Paulo"),
+          },
+          null,
+          2
+        )}
+      </DatePicker.Label>
       <DatePicker.Control>
         <DatePicker.Input />
         <DatePicker.Trigger>📅</DatePicker.Trigger>
@@ -128,7 +143,7 @@ export const Basic = () => {
           </DatePicker.Content>
         </DatePicker.Positioner>
       </Portal>
-    </DatePicker.Root>
+    </DatePicker.RootProvider>
   );
 };
 
