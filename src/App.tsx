@@ -16,6 +16,10 @@ export const Basic = () => {
           {
             start: datePicker.visibleRange.start.toDate("America/Sao_Paulo"),
             end: datePicker.visibleRange.end.toDate("America/Sao_Paulo"),
+            start2: datePicker.weeks[0][0].toDate("America/Sao_Paulo"),
+            end2: datePicker.weeks[datePicker.weeks.length - 1][6].toDate(
+              "America/Sao_Paulo"
+            ),
           },
           null,
           2
