@@ -11,7 +11,7 @@ export const Basic = () => {
   return (
     <DatePicker.RootProvider value={datePicker}>
       <DatePicker.Label>
-        Label
+        Visible range{" "}
         {JSON.stringify(
           {
             start: datePicker.visibleRange.start.toDate("America/Sao_Paulo"),
